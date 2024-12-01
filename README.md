@@ -4,7 +4,7 @@ Repo desinado a archivar contenido en formato texto [.HTML//.TXT] sacados del ci
 
 ## Contenidos
 
-Esta sección se irá expandiendo a medida que actualice los archivos, se usa formato [/imageboard/]
+Esta sección se irá expandiendo a medida que actualice los archivos, se usa formato canal de 4chan.
 
 - **/lit/**: Literatura
 
