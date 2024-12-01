@@ -1,5 +1,4 @@
-Philosophers’ Science
-Fiction / Speculative Fiction Recommendations, Organized by Author / Director
+# Philosophers’ Science Fiction / Speculative Fiction Recommendations, Organized by Author / Director
 
 August
 15, 2016
@@ -16,7 +15,7 @@ September 2014, I have been gathering recommendations of “philosophically
 interesting” science fiction – or “speculative fiction” (SF), more broadly
 construed – from professional philosophers.So far, 48 philosophers have contributed (plus one co-contributor).Each contributor has recommended ten works of
 speculative fiction and has written a brief “pitch” gesturing toward the
-interest of the work.
+interest of the work.  
 
 
 
@@ -30,43 +29,42 @@ order of how many different contributors recommended that author or director,
 and then by chronological order of works for authors and directors/shows with
 multiple listed works.For works
 recommended more than once, I have included each contributor’s pitch on a
-separate line.
+separate line.  
 
 
 
-The
-most recommended authors were:
+## The most recommended authors were:  
 
-Recommended by 13
-contributors:
+- Recommended by 13
+contributors:  
 
 Ursula K. LeGuin
 
-Recommended by 11:
+- Recommended by 11:
 
 Ted
 Chiang
 
 Philip K. Dick
 
-Recommended by 8:
+- Recommended by 8:
 
 Greg
 Egan
 
 StanisławLem
 
-Recommended by 7:
+- Recommended by 7:
 
 Isaac Asimov
 
-Recommended by 6:
+- Recommended by 6:
 
 Margaret Atwood
 
 Octavia Butler
 
-Recommended by 5:
+- Recommended by 5:
 
 Edwin
 Abbot
@@ -84,7 +82,7 @@ Stephenson
 
 Kurt Vonnegut
 
-Recommended by 4:
+- Recommended by 4:
 
 Douglas Adams
 
@@ -104,7 +102,7 @@ CharlesStross
 
 Gene Wolfe
 
-Recommended by 3:
+- Recommended by 3:
 
 Iain M. Banks
 
@@ -148,14 +146,14 @@ RogerZelazny
 
 
 
-The most recommendeddirectors/ TV shows were:
+## The most recommended directors / TV shows were:
 
-Recommended
+- Recommended
 by 7:
 
 Star Trek: The Next Generation
 
-Recommended
+- Recommended
 by 5:
 
 Christopher
@@ -164,7 +162,7 @@ Dark Knight, Inception)
 
 Ridley Scott (Blade Runner)
 
-Recommended
+- Recommended
 by 4:
 
 Duncan
@@ -175,7 +173,7 @@ AndrewNiccol(Gattaca)
 PaulVerhoeven(Total
 Recall, Starship Troopers)
 
-Recommended
+- Recommended
 by 3:
 
 BattlestarGalactica
@@ -184,7 +182,7 @@ Futurama
 
 Andy
 & Lana Wachowski (The Matrixand
-sequels)
+sequels)  
 
 
 
@@ -202,14 +200,14 @@ Kind, PeteMandik, Ethan Mills, Ryan Nichols, Paul
 Oppenheimer, Adriano Palma, Lewis Powell, Paul Prescott, Melanie Rosen, Ina
 Roy-Faderman, Susan Schneider, Eric Schwitzgebel, Mark
 Silcox, Meghan Sullivan, Christy MagUidhir, Jonathan
-Weinberg, DylanWittkower, and Audrey Yap.
+Weinberg, DylanWittkower, and Audrey Yap.  
 
 
 
 A
 separate list, also available on my website, organizes the recommendations by
 contributors, so that you can see all Allais’s suggestions together, all Baker’s,
-etc.
+etc.  
 
 
 
