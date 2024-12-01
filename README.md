@@ -1,6 +1,6 @@
 # DigitalDump
 
-Repo desinado a archivar contenido en formato texto [.HTML//.TXT] sacados del ciberespacio.
+Repo desinado a archivar contenido en formato texto sacados del ciberespacio.
 
 ## Contenidos
 
