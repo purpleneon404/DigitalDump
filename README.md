@@ -1,6 +1,6 @@
 # 🗂️ DigitalDump
 
-Repo destinado a archivar contenido en formato texto encontrado en el ciberespacio. 
+Repo destinado a archivar contenido en formato texto encontrado en el ciberespacio.  
 Site: https://purpleneon404.github.io/DigitalDump/  
 ## 📚 Contenidos
 
