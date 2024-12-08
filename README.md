@@ -1,6 +1,6 @@
 # 🗂️ DigitalDump
 
-Repo destinado a archivar contenido en formato texto encontrado en sesiones de navegación ciberespacial. 
+Repo destinado a archivar contenido en formato texto encontrado en el ciberespacio. 
 
 ## 📚 Contenidos
 
