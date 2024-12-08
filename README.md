@@ -1,7 +1,7 @@
 # 🗂️ DigitalDump
 
 Repo destinado a archivar contenido en formato texto encontrado en el ciberespacio. 
-
+Site: https://purpleneon404.github.io/DigitalDump/  
 ## 📚 Contenidos
 
 Esta sección se irá expandiendo a medida que actualice los archivos, se usa formato canal de 4chan.
