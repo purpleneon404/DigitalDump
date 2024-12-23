@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #search {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        img.cover {
+            max-width: 100px;
+            border-radius: 4px;
+        }
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventario</h1>
+        <input type="text" id="search" placeholder="Buscar...">
+        <table id="data-table">
+            <thead>
+                <tr id="table-headers">
+                    <!-- Los encabezados se llenarán dinámicamente -->
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="prev" disabled>Anterior</button>
+            <button id="next">Siguiente</button>
+        </div>
+    </div>
+    <script>
+        const INVENTORY_FILE = 'E.csv';
+        let data = [];
+        let headers = [];
+        let currentPage = 1;
+        const itemsPerPage = 20;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCSV();
+
+            document.getElementById('search').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filteredData = data.filter(row => row.some(cell => cell.toLowerCase().includes(query)));
+                renderTable(filteredData);
+            });
+
+            document.getElementById('prev').addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderTable();
+                }
+            });
+
+            document.getElementById('next').addEventListener('click', () => {
+                if (currentPage * itemsPerPage < data.length) {
+                    currentPage++;
+                    renderTable();
+                }
+            });
+        });
+
+        function loadCSV() {
+            fetch(INVENTORY_FILE)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar el archivo.');
+                    }
+                    return response.text();
+                })
+                .then(text => {
+                    const rows = text.split('\n').filter(row => row.trim() !== '').map(row => row.split(','));
+                    headers = rows.shift(); // Obtener encabezados
+                    if (!headers || headers.length === 0) {
+                        console.error('El archivo CSV no contiene encabezados válidos.');
+                        return;
+                    }
+                    data = rows.filter(row => row.length === headers.length); // Filtrar filas inválidas
+                    renderHeaders(headers);
+                    renderTable();
+                })
+                .catch(error => console.error('Error al cargar el archivo:', error));
+        }
+
+        function renderHeaders(headers) {
+            const headerRow = document.getElementById('table-headers');
+            headerRow.innerHTML = '';
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.textContent = header.trim();
+                headerRow.appendChild(th);
+            });
+        }
+
+        function renderTable(filteredData = null) {
+            const tableBody = document.querySelector('#data-table tbody');
+            tableBody.innerHTML = '';
+
+            const displayData = (filteredData || data).slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+            if (displayData.length === 0) {
+                const noDataRow = document.createElement('tr');
+                const noDataCell = document.createElement('td');
+                noDataCell.colSpan = headers.length;
+                noDataCell.textContent = 'No hay datos disponibles.';
+                noDataRow.appendChild(noDataCell);
+                tableBody.appendChild(noDataRow);
+                return;
+            }
+
+            displayData.forEach(row => {
+                const tr = document.createElement('tr');
+                row.forEach((cell, index) => {
+                    const td = document.createElement('td');
+                    if (index === 0) { // Primera columna: cover
+                        const img = document.createElement('img');
+                        img.src = cell.trim();
+                        img.alt = 'Cover Image';
+                        img.className = 'cover';
+                        td.appendChild(img);
+                    } else {
+                        td.textContent = cell.trim();
+                    }
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+
+            document.getElementById('prev').disabled = currentPage === 1;
+            document.getElementById('next').disabled = currentPage * itemsPerPage >= data.length;
+        }
+    </script>
+</body>
+</html>
