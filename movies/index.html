@@ -170,15 +170,20 @@
                     const td = document.createElement('td');
                     if (index === 0) { // Primera columna: cover
                         const imgPath = cell.trim();
-                        const img = document.createElement('img');
-                        img.src = imgPath; // Usar directamente el contenido de la celda como ruta
-                        img.alt = 'Cover Image';
-                        img.className = 'cover';
-                        img.onerror = () => {
-                            img.src = 'fallback.png'; // Usar una imagen de respaldo si no se encuentra la original
-                            img.alt = 'Imagen no disponible';
-                        };
-                        td.appendChild(img);
+                        if (imgPath) {
+                            const img = document.createElement('img');
+                            img.src = imgPath; // Usar directamente el contenido de la celda como ruta
+                            img.alt = 'Cover Image';
+                            img.className = 'cover';
+                            img.onerror = () => {
+                                img.onerror = null; // Evitar bucles infinitos
+                                img.src = 'fallback.png'; // Usar una imagen de respaldo si no se encuentra la original
+                                img.alt = 'Imagen no disponible';
+                            };
+                            td.appendChild(img);
+                        } else {
+                            td.textContent = 'Sin imagen';
+                        }
                     } else {
                         td.textContent = cell.trim();
                     }
