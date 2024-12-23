@@ -94,6 +94,7 @@
             document.getElementById('search').addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
                 const filteredData = data.filter(row => row.some(cell => cell.toLowerCase().includes(query)));
+                currentPage = 1; // Reiniciar a la primera página al filtrar
                 renderTable(filteredData);
             });
 
@@ -179,7 +180,7 @@
             });
 
             document.getElementById('prev').disabled = currentPage === 1;
-            document.getElementById('next').disabled = currentPage * itemsPerPage >= data.length;
+            document.getElementById('next').disabled = currentPage * itemsPerPage >= (filteredData || data).length;
         }
     </script>
 </body>
