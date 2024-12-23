@@ -125,13 +125,13 @@
                     return response.text();
                 })
                 .then(text => {
-                    const rows = text.split('\\n').filter(row => row.trim() !== '').map(row => row.split(','));
+                    const rows = text.split('\n').map(row => row.split(',')).filter(row => row.length > 1);
                     headers = rows.shift(); // Obtener encabezados
                     if (!headers || headers.length === 0) {
                         console.error('El archivo CSV no contiene encabezados válidos.');
                         return;
                     }
-                    data = rows.filter(row => row.length === headers.length); // Filtrar filas inválidas
+                    data = rows; // Cargar los datos
                     renderHeaders(headers);
                     renderTable();
                 })
