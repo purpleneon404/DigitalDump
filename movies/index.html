@@ -41,8 +41,11 @@
             background-color: #f4f4f4;
         }
         img.cover {
-            max-width: 100px;
+            width: 80px;
+            height: auto;
             border-radius: 4px;
+            display: block;
+            margin: 0 auto;
         }
         .pagination {
             text-align: center;
@@ -82,7 +85,7 @@
         </div>
     </div>
     <script>
-        const INVENTORY_FILE = 'movies.csv';
+        const INVENTORY_FILE = 'E.csv';
         let data = [];
         let headers = [];
         let currentPage = 1;
@@ -122,7 +125,7 @@
                     return response.text();
                 })
                 .then(text => {
-                    const rows = text.split('\n').filter(row => row.trim() !== '').map(row => row.split(','));
+                    const rows = text.split('\\n').filter(row => row.trim() !== '').map(row => row.split(','));
                     headers = rows.shift(); // Obtener encabezados
                     if (!headers || headers.length === 0) {
                         console.error('El archivo CSV no contiene encabezados válidos.');
