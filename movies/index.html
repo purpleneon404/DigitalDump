@@ -175,11 +175,7 @@
                             img.src = imgPath; // Usar directamente el contenido de la celda como ruta
                             img.alt = 'Cover Image';
                             img.className = 'cover';
-                            img.onerror = () => {
-                                img.onerror = null; // Evitar bucles infinitos
-                                img.src = 'fallback.png'; // Usar una imagen de respaldo si no se encuentra la original
-                                img.alt = 'Imagen no disponible';
-                            };
+                            img.onerror = null; // Deshabilitar manejo adicional para evitar bucles
                             td.appendChild(img);
                         } else {
                             td.textContent = 'Sin imagen';
