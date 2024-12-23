@@ -173,7 +173,7 @@
                         if (imgPath) {
                             const img = document.createElement('img');
                             img.src = imgPath; // Usar directamente el contenido de la celda como ruta
-                            img.alt = 'Cover Image';
+                            img.alt = imgPath;
                             img.className = 'cover';
                             img.onerror = null; // Deshabilitar manejo adicional para evitar bucles
                             td.appendChild(img);
