@@ -170,15 +170,11 @@
                     const td = document.createElement('td');
                     if (index === 0) { // Primera columna: cover
                         const imgPath = cell.trim();
-                        if (imgPath.startsWith('/covers/') && imgPath.endsWith('.png') || imgPath.endsWith('.jpg')) {
-                            const img = document.createElement('img');
-                            img.src = imgPath;
-                            img.alt = 'Cover Image';
-                            img.className = 'cover';
-                            td.appendChild(img);
-                        } else {
-                            td.textContent = 'Sin imagen';
-                        }
+                        const img = document.createElement('img');
+                        img.src = imgPath; // Usar directamente el contenido de la celda como ruta
+                        img.alt = 'Cover Image';
+                        img.className = 'cover';
+                        td.appendChild(img);
                     } else {
                         td.textContent = cell.trim();
                     }
