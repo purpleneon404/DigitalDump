@@ -169,11 +169,15 @@
                 row.forEach((cell, index) => {
                     const td = document.createElement('td');
                     if (index === 0) { // Primera columna: cover
-                        const img = document.createElement('img');
-                        img.src = cell.trim();
-                        img.alt = 'Cover Image';
-                        img.className = 'cover';
-                        td.appendChild(img);
+                        if (cell.trim()) {
+                            const img = document.createElement('img');
+                            img.src = cell.trim();
+                            img.alt = 'Cover Image';
+                            img.className = 'cover';
+                            td.appendChild(img);
+                        } else {
+                            td.textContent = 'Sin imagen';
+                        }
                     } else {
                         td.textContent = cell.trim();
                     }
