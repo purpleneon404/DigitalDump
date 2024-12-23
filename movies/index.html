@@ -39,6 +39,7 @@
         }
         th {
             background-color: #f4f4f4;
+            cursor: pointer;
         }
         img.cover {
             width: 80px;
@@ -85,11 +86,12 @@
         </div>
     </div>
     <script>
-        const INVENTORY_FILE = 'movies.csv';
+        const INVENTORY_FILE = 'E.csv';
         let data = [];
         let headers = [];
         let currentPage = 1;
         const itemsPerPage = 20;
+        let sortDirection = 1; // 1 = Ascendente, -1 = Descendente
 
         document.addEventListener('DOMContentLoaded', () => {
             loadCSV();
@@ -141,11 +143,29 @@
         function renderHeaders(headers) {
             const headerRow = document.getElementById('table-headers');
             headerRow.innerHTML = '';
-            headers.forEach(header => {
+            headers.forEach((header, index) => {
                 const th = document.createElement('th');
                 th.textContent = header.trim();
+                if (index === 1) { // Hacer clic solo en la columna de títulos (index 1)
+                    th.innerHTML += ' ▲▼';
+                    th.addEventListener('click', () => {
+                        sortDirection *= -1; // Alternar entre ascendente y descendente
+                        sortData(index);
+                    });
+                }
                 headerRow.appendChild(th);
             });
+        }
+
+        function sortData(columnIndex) {
+            data.sort((a, b) => {
+                const textA = a[columnIndex].toLowerCase();
+                const textB = b[columnIndex].toLowerCase();
+                if (textA < textB) return -1 * sortDirection;
+                if (textA > textB) return 1 * sortDirection;
+                return 0;
+            });
+            renderTable();
         }
 
         function renderTable(filteredData = null) {
@@ -173,7 +193,7 @@
                         if (imgPath) {
                             const img = document.createElement('img');
                             img.src = imgPath; // Usar directamente el contenido de la celda como ruta
-                            img.alt = imgPath;
+                            img.alt = 'Cover Image';
                             img.className = 'cover';
                             img.onerror = null; // Deshabilitar manejo adicional para evitar bucles
                             td.appendChild(img);
