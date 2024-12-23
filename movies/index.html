@@ -159,8 +159,8 @@
 
         function sortData(columnIndex) {
             data.sort((a, b) => {
-                const textA = a[columnIndex].toLowerCase();
-                const textB = b[columnIndex].toLowerCase();
+                const textA = a[columnIndex]?.toLowerCase().trim() || '';
+                const textB = b[columnIndex]?.toLowerCase().trim() || '';
                 if (textA < textB) return -1 * sortDirection;
                 if (textA > textB) return 1 * sortDirection;
                 return 0;
